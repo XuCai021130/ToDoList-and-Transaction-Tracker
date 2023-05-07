@@ -1,0 +1,25 @@
+<h1>Summary of all Transaction</h1>
+<table class="table table-bordered table-striped">
+    <ul>
+        <li><a href="/transaction">transaction table</a></li>
+    </ul>
+    <thead>
+        <tr>
+            <th>category</th>
+            <th>amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% results.map(item=> {%>
+            <tr>
+                <td>
+                    <%= item._id %>
+                </td>
+                <td>
+                    <%= item.total %>
+                </td>
+            </tr>
+            <% }) %>
+
+    </tbody>
+</table>

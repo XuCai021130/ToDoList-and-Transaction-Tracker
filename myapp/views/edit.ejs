@@ -1,0 +1,59 @@
+<pre>
+    <%= JSON.stringify(item,null,5) %>
+  </pre>
+
+  <h1>Update a transaction</h1>
+        <form method="POST" action='/transaction/updateItem'>
+            <input type="hidden" name="itemId" value="<%= item._id %>">
+            <label for="description">Description:</label>
+            <input type="text" value="<%= item.description %>" id="description" name="description"><br><br>
+          
+            <label for="amount">Amount:</label>
+            <input type="number" value="<%= item.amount %>" id="amount" name="amount"><br><br>
+          
+            <label for="category">Category:</label>
+            <select id="category" name="category">
+              <option value="food">Food</option>
+              <option value="clothing">Clothing</option>
+              <option value="transportation">Transportation</option>
+              <option value="housing">Housing</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="utilities">Utilities</option>
+            </select><br><br>
+            <label for="date">Date:</label>
+            <select name="year" id="year" required>
+              <option value="">-- Year --</option>
+              <script>
+                const currentYear = new Date().getFullYear();
+                for (let year = currentYear; year >= currentYear - 10; year--) {
+                  document.write(`<option value="${year}">${year}</option>`);
+                }
+              </script>
+            </select>
+          
+            <select name="month" id="month" required>
+              <option value="">-- Month --</option>
+              <option value="01">January</option>
+              <option value="02">February</option>
+              <option value="03">March</option>
+              <option value="04">April</option>
+              <option value="05">May</option>
+              <option value="06">June</option>
+              <option value="07">July</option>
+              <option value="08">August</option>
+              <option value="09">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          
+            <select name="day" id="day" required>
+              <option value="">-- Day --</option>
+              <script>
+                for (let day = 1; day <= 31; day++) {
+                  document.write(`<option value="${day}">${day}</option>`);
+                }
+              </script>
+            </select><br><br>          
+            <input type="submit" value="store">
+          </form>
